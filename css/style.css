@@ -1,0 +1,334 @@
+.wrapper {
+	overflow: hidden;
+	position: relative;
+	min-height: 100%;
+}
+
+[class*="__container"]{
+   max-width: 1250px;
+   margin: 0 auto;
+}
+body{
+   font-family: Arial, Helvetica, sans-serif;
+}
+h2, p{
+   font-weight: 800;
+   color: #fff;
+   text-align: center;
+   font-size: 24px;
+
+}
+h2{
+   line-height: 2;
+}
+p{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%);
+   /* z-index: 5; */
+}
+.trans__block{
+   background-color: rgb(189, 110, 46);
+   padding: 15px;
+   margin-bottom: 20px;
+}
+.trans__body {
+   display: inline-block;
+   width: 200px;
+   height: 200px;
+   background-color: rgb(248, 91, 91);
+   /* position: relative; */
+}
+.trans__body:not(:last-child){
+   margin-right: 50px;
+}
+.trans__item {
+   width: 200px;
+   height: 200px;
+   background-color: rgb(68, 181, 216);
+   position: relative;
+}
+
+/* ====================================================== */
+.trans__body:hover .trans__item--trans{
+   width: 220px;
+   height: 220px;
+   transform: translate(10%, 10%);
+   background-color: rgb(48, 172, 104);
+}  
+.trans__item--trans {
+   transition: all 0.4s ease 0.2s;
+}
+.trans__body:hover .trans__item--scale{
+   width: 220px;
+   height: 220px;
+   transform: scale(1.2);
+   background-color: rgb(48, 172, 104);
+} 
+.trans__item--scale{
+   transition: all 0.4s linear 0.2s;
+}
+.trans__body:hover .trans__item--rotate{
+   width: 220px;
+   height: 220px;
+   transform: rotate(360deg);
+   background-color: rgb(48, 172, 104);
+} 
+.trans__item--rotate{
+   transition: all 0.8s steps(12,start) 0.2s;
+}
+.trans__body:hover .trans__item--skew{
+   width: 100px;
+   height: 100px;
+   transform: skew(15deg);
+   background-color: rgb(48, 172, 104);
+} 
+.trans__item--skew{
+   transition: all 0.8s cubic-bezier(0.68,-0.55,0.265,1.55) 0.2s;
+}
+.trans__body--perspective{
+   perspective: 300px;
+   transform-style: preserve-3d;
+   background-color: rgba(248, 89, 89, 0.5);
+}
+.trans__body:hover .trans__item--perspective{
+   width: 220px;
+   height: 220px;
+   transform: rotateX(45deg);
+   background-color: rgb(48, 172, 104);
+} 
+.trans__item--perspective{
+   transition: width 0.4s ease 0s, height 0.5s ease-in 0.4s, background-color 0.7s ease 0.4s;
+}
+/* ====================================================== */
+.anime__block {
+   background-color: rgb(31, 133, 99);
+   padding: 15px;
+}
+.anime__body {
+position: relative;
+width: 1220px;
+height: 200px;
+border: 3px solid;
+}
+.anime__body:not(:last-child){
+   margin-bottom: 20px;
+}
+.amine__item {
+   padding: 5px;
+   width: 200px;
+   height: 100%;
+   background-color: rgb(68, 181, 216);
+   position: absolute;
+}
+.anime__body:hover .amine__item{
+   animation-name: item-trans;
+   animation-duration: 2s;
+	animation-iteration-count: 2;
+}
+@keyframes item-trans {
+	0% {
+		left: 0;
+	}
+	50% {
+      background-color: rgb(248, 91, 91);
+	}
+	100% {
+		left: 83.5%;
+	}
+}
+/* ====================================================== */
+.amine__item--ease{
+   animation-timing-function: ease;
+   animation-direction: normal;
+   animation-fill-mode: forwards;
+}
+.amine__item--linear{
+   animation-timing-function: linear;
+   animation-direction: reverse;
+}
+.amine__item--linear:hover{
+   animation-play-state: paused;
+}
+.amine__item--steps{
+   animation-timing-function: steps(24,start);
+   animation-direction: alternate;
+}
+/* ====================================================== */
+/*
+.button{
+   position: fixed; 
+}
+
+.btn{
+   display: inline-block;
+   /* width: 64px;
+   height: 64px;
+   background: url(../img/icon/mark.svg);
+   border: 2px solid;
+   border-radius: 50%; 
+   position: fixed;
+   top: 50px;
+   left: 120px;
+}
+.btn::before{
+   content: "";
+   width: 50px;
+   height: 35px;
+   background: url(../img/icon/vector.svg);
+   top: 25%;
+   left: -86%;
+   position: absolute;
+   animation: arrow-move .8s linear infinite alternate running 0s forwards;
+}
+@keyframes arrow-move{
+   0%{
+      left: -86%;
+   }
+   100%{
+      left: -120%;
+   }
+}
+.btn::after{
+   content: "";
+   width: 50px;
+   height: 35px;
+   background: url(../img/icon/arrow.svg);
+   top: 25%;
+   left: 103%;
+   position: absolute;
+   animation: arrow-moves .8s linear infinite alternate running 0s forwards;
+}
+@keyframes arrow-moves{
+   0%{
+      left: 103%;
+   }
+   100%{
+      left: 137%;
+   }
+}
+.btn:hover::after,
+.btn:hover::before{
+   animation-play-state: paused;
+}
+*/
+/* ====================================================== */
+
+.flip {
+   display: inline-block;
+   transform-style: flat;
+   position: fixed;
+}
+.flip__body {
+   position: relative;
+	width: 200px;
+	height: 200px;
+	transition: all 3s ease 1s;
+	transform-style: preserve-3d;
+}
+.flip__front,
+.flip__back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+   border-radius: 30%;
+}
+.flip__back a{
+   width: 100%;
+   height: 100%;
+}
+.flip__front {
+	z-index: 2;
+	transform: rotateY(0deg);
+   background: url(../img/icon/mark.svg) 0 0 / cover no-repeat;
+   background-color: #fff;
+	backface-visibility: hidden;
+}
+.flip__back {
+	transform: rotateY(-180deg);
+   background: url(../img/icon/click.svg) 0 0 / cover no-repeat;
+}
+.flip:hover .flip__body {
+	transform: rotateY(-180deg);
+}
+.flip__body:hover .flip__back{
+   animation-name: color-trans;
+   animation-delay: 3s;
+   animation-duration: 1s;
+	animation-iteration-count: infinite;
+}
+@keyframes color-trans {
+	0% {
+	}
+	50% {
+      background-color: rgb(248, 91, 91);
+	}
+	100% {
+	}
+}
+/* ====================================================== */
+.title {
+	font-weight: 700;
+	font-size: 40px;
+	animation: title 1s ease forwards;
+	transform: translate(0px, 50%);
+	opacity: 0;
+}
+.title:not(:last-child){
+	margin-bottom: 20px;
+}
+.sub-title {
+	font-size: 24px;
+	animation: title 1s ease 0.5s forwards;
+	transform: translate(0px, 50%);
+	opacity: 0;
+}
+.sub-title:not(:last-child) {
+	margin-bottom: 15px;
+}
+.text {
+	animation: title 1s ease 1s forwards;
+	line-height: 1.5;
+	transform: translate(0px, 50%);
+	opacity: 0;
+}
+@keyframes title {
+	0% {
+	}
+	100% {
+		transform: translate(0px, 0%);
+		opacity: 1;
+	}
+}
+/* ====================================================== */
+.footer{
+   width: 100px;
+   height: 100px;
+   background-color: rgb(25, 85, 22);
+   position: relative;
+   margin: 0 auto;
+   animation: footer-rotate 4s linear infinite;
+   border-radius: 50%;
+}
+.footer h3{
+   font-weight: 700;
+   color: #fff;
+   position: absolute; 
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%);
+}
+@keyframes footer-rotate{
+   0%{
+      transform: rotate(0deg);
+   }
+   100%{
+      transform: rotate(360deg);
+   }
+}
